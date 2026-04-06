@@ -22,11 +22,11 @@ const Sidebar = () => {
   if (isUsersLoading) return <SidebarSkeleton />;
 
   return (
-    <aside className="flex-shrink-0 w-20 sm:w-24 md:w-28 lg:w-72 bg-zinc-900 border-r border-zinc-800 flex flex-col transition-all duration-300">
+    <aside className="flex-shrink-0 w-20 sm:w-24 md:w-28 lg:w-72 bg-black/30 backdrop-filter backdrop-blur-lg border-r border-white/20 flex flex-col transition-all duration-300">
       {/* Header */}
-      <div className="flex items-center gap-3 p-4 border-b border-zinc-800">
-        <Users className="w-5 h-5 text-zinc-400" />
-        <span className="font-semibold text-zinc-100 hidden lg:block">
+      <div className="flex items-center gap-3 p-4 border-b border-white/20">
+        <Users className="w-5 h-5 text-white/70" />
+        <span className="font-semibold text-white hidden lg:block">
           Contacts
         </span>
       </div>
@@ -37,9 +37,9 @@ const Sidebar = () => {
           <button
             key={user._id}
             onClick={() => setSelectedUser(user)}
-            className={`w-full px-3 py-2 flex items-center gap-3 rounded-md transition-all duration-150 hover:bg-zinc-800/70 ${
+            className={`w-full px-3 py-2 flex items-center gap-3 rounded-md transition-all duration-200 hover:bg-white/10 ${
               selectedUser?._id === user._id
-                ? "bg-zinc-800 ring-1 ring-zinc-700"
+                ? "bg-gradient-to-r from-purple-600/50 to-blue-600/50 ring-1 ring-white/30"
                 : ""
             }`}
           >
@@ -47,22 +47,22 @@ const Sidebar = () => {
               <img
                 src={user.profilePic || noUser}
                 alt={user.fullName}
-                className="w-10 h-10 object-cover rounded-full border border-zinc-700 hover:scale-110 transition-transform"
+                className="w-10 h-10 object-cover rounded-full border border-white/30 hover:scale-110 transition-transform"
               />
               {onlineUsers.includes(user._id) && (
-                <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full ring-2 ring-black" />
+                <span className="online-indicator" />
               )}
             </div>
 
-            <div className="flex flex-col min-w-0 hidden lg:flex">
-              <div className="font-medium text-zinc-100 truncate">
+            <div className="flex-col min-w-0 hidden lg:flex">
+              <div className="font-medium text-white truncate">
                 {user.fullName}
               </div>
               <div
                 className={`text-sm ${
                   onlineUsers.includes(user._id)
                     ? "text-green-400"
-                    : "text-zinc-500"
+                    : "text-white/50"
                 }`}
               >
                 {onlineUsers.includes(user._id) ? "Online" : "Offline"}
@@ -72,7 +72,7 @@ const Sidebar = () => {
         ))}
 
         {filteredUsers.length === 0 && (
-          <div className="text-center text-zinc-500 py-5 text-sm">
+          <div className="text-center text-white/50 py-5 text-sm">
             No Users
           </div>
         )}

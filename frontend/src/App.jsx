@@ -22,29 +22,33 @@ const App = () => {
   console.log({authUser});
 
   if(isCheckingAuth && !authUser){
-    <div className='flex items-center justify-center h-screen'>
-      <Loader className='size-10 animate-spin' />
-    </div>
+    return (
+      <div className='flex items-center justify-center h-screen message-fade-in'>
+        <Loader className='size-10 animate-spin text-white' />
+      </div>
+    )
   }
 
   return (
-    <div   >
+    <div className="min-h-screen message-fade-in">
     
     <Toaster
   position="top-right"
   toastOptions={{
     duration: 3000,
     style: {
-      background: '#1E293B', // Slate-ish background
+      background: 'rgba(255,255,255,0.1)', // Glassmorphism background
+      backdropFilter: 'blur(12px)',
       color: '#fff',
-      borderRadius: '8px',
+      borderRadius: '12px',
       padding: '12px 16px',
       fontSize: '0.9rem',
-      boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+      boxShadow: '0 8px 32px rgba(124,58,237,0.3)',
+      border: '1px solid rgba(255,255,255,0.2)',
     },
     success: {
       iconTheme: {
-        primary: '#22c55e',
+        primary: '#7C3AED',
         secondary: '#fff',
       },
     },

@@ -26,8 +26,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 text-white px-4">
-      <div className="w-full max-w-md bg-zinc-900/80 backdrop-blur-2xl border border-zinc-800/70 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)] p-8 transition-all duration-300">
+    <div className="flex justify-center items-center min-h-screen text-white px-4">
+      <div className="w-full max-w-md glass backdrop-blur-2xl border border-white/20 rounded-2xl shadow-[0_0_30px_rgba(124,58,237,0.3)] p-8 transition-all duration-300 message-fade-in">
         <h2 className="text-3xl font-bold text-center mb-8 text-white">
           Welcome Back 👋
         </h2>
@@ -37,17 +37,17 @@ const LoginPage = () => {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-slate-300 mb-2"
+              className="block text-sm font-medium text-white/80 mb-2"
             >
               Email Address
             </label>
             <div className="relative">
-              <Mail className="absolute left-3 top-3 text-slate-500 w-5 h-5" />
+              <Mail className="absolute left-3 top-3 text-white/50 w-5 h-5" />
               <input
                 type="email"
                 id="email"
                 placeholder="you@example.com"
-                className="w-full pl-10 pr-4 py-2.5 bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                className="w-full pl-10 pr-4 py-2.5 input-glass rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all"
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
@@ -59,17 +59,17 @@ const LoginPage = () => {
           <div>
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-slate-300 mb-2"
+              className="block text-sm font-medium text-white/80 mb-2"
             >
               Password
             </label>
             <div className="relative">
-              <Lock className="absolute left-3 top-3 text-slate-500 w-5 h-5" />
+              <Lock className="absolute left-3 top-3 text-white/50 w-5 h-5" />
               <input
                 type={showPassword ? "text" : "password"}
                 id="password"
                 placeholder="Enter your password"
-                className="w-full pl-10 pr-10 py-2.5 bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                className="w-full pl-10 pr-10 py-2.5 input-glass rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all"
                 onChange={(e) =>
                   setFormData({ ...formData, password: e.target.value })
                 }
@@ -77,7 +77,7 @@ const LoginPage = () => {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-2.5 text-slate-400 hover:text-white transition-all"
+                className="absolute right-3 top-2.5 text-white/60 hover:text-white transition-all"
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
@@ -87,18 +87,18 @@ const LoginPage = () => {
           {/* Login Button */}
           <button
             type="submit"
-            className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-lg shadow-md transition-all duration-200 hover:shadow-indigo-500/20"
+            className="w-full btn-gradient text-white font-semibold py-2.5 rounded-lg shadow-md transition-all duration-200 hover:shadow-purple-500/30"
           >
             Log In
           </button>
         </form>
 
         {/* Footer */}
-        <p className="text-center text-sm text-slate-400 mt-6">
+        <p className="text-center text-sm text-white/60 mt-6">
           Don’t have an account?{" "}
           <Link
             to="/signup"
-            className="text-indigo-400 hover:text-indigo-300 font-medium hover:underline transition-all"
+            className="text-purple-400 hover:text-purple-300 font-medium hover:underline transition-all"
           >
             Sign up
           </Link>

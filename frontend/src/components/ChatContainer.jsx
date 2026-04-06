@@ -35,7 +35,7 @@ const ChatContainer = () => {
 
   if (isMessagesLoading || !messages) {
     return (
-      <div className="flex flex-col h-full bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1f1f1f] text-white">
+      <div className="flex flex-col h-full bg-black/20 backdrop-filter backdrop-blur-sm text-white">
         <ChatHeader />
         <div className="flex-1 overflow-y-auto">
           <MessageSkeleton />
@@ -48,7 +48,7 @@ const ChatContainer = () => {
   return (
     <div className="flex flex-col h-full bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1f1f1f] text-white">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-gradient-to-b from-[#0a0a0a]/90 to-[#111111]/50 backdrop-blur-sm border-b border-zinc-800">
+      <div className="sticky top-0 z-20 glass border-b border-white/20">
         <ChatHeader />
       </div>
 
@@ -71,7 +71,7 @@ const ChatContainer = () => {
                 <img
                   src={avatar}
                   alt="avatar"
-                  className="w-7 h-7 rounded-full border border-zinc-700 sm:w-9 sm:h-9"
+                  className="w-7 h-7 rounded-full border border-white/30 sm:w-9 sm:h-9"
                 />
               )}
 
@@ -81,10 +81,10 @@ const ChatContainer = () => {
                 } max-w-[85%] sm:max-w-[70%]`}
               >
                 <div
-                  className={`px-3 py-2 rounded-2xl text-[12px] sm:text-sm leading-relaxed ${
+                  className={`px-3 py-2 rounded-2xl text-[12px] sm:text-sm leading-relaxed message-fade-in ${
                     isOwn
-                      ? "bg-gradient-to-br from-green-500 to-green-700 text-white rounded-tr-sm shadow-md"
-                      : "bg-[#1a1a1a]/80 text-gray-100 rounded-tl-sm shadow-sm"
+                      ? "bg-gradient-to-br from-purple-600 to-blue-600 text-white rounded-tr-sm shadow-lg"
+                      : "bg-white/15 text-white rounded-tl-sm shadow-sm backdrop-blur-sm"
                   }`}
                 >
                   {m.image && (
@@ -97,7 +97,7 @@ const ChatContainer = () => {
                   {m.text && <p>{m.text}</p>}
                 </div>
 
-                <span className="text-[10px] text-gray-400 mt-1 px-1">
+                <span className="text-[10px] text-white/60 mt-1 px-1">
                   {new Date(m.createdAt).toLocaleTimeString([], {
                     hour: "2-digit",
                     minute: "2-digit",
@@ -109,7 +109,7 @@ const ChatContainer = () => {
                 <img
                   src={avatar}
                   alt="avatar"
-                  className="w-7 h-7 rounded-full border border-zinc-700 sm:w-9 sm:h-9"
+                  className="w-7 h-7 rounded-full border border-white/30 sm:w-9 sm:h-9"
                 />
               )}
             </div>
@@ -121,7 +121,7 @@ const ChatContainer = () => {
       </div>
 
       {/* Input */}
-      <div className="sticky bottom-0 bg-gradient-to-t from-[#0a0a0a]/95 to-[#111111]/50 backdrop-blur-md border-t border-zinc-800">
+      <div className="sticky bottom-0 glass border-t border-white/20">
         <MessageInput />
       </div>
     </div>

@@ -15,7 +15,7 @@ const HomePage = () => {
       </div>
 
       {/* Main Chat Section */}
-      <div className="flex-1 flex flex-col bg-zinc-900/80">
+      <div className="flex-1 flex flex-col chat-animated-bg">
         {!selectedUser ? <NoChatSelected /> : <ChatContainer />}
       </div>
     </div>

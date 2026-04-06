@@ -42,9 +42,9 @@ const MessageInput = () => {
   return (
     <div
       className="fixed bottom-0 left-0 right-0 
-                 bg-[#0d0d0d] border-t border-zinc-800 
+                 glass border-t border-white/20 
                  px-2 sm:px-4 py-2 sm:py-3 
-                 z-50 max-w-[100vw]"
+                 z-50 max-w-[100vw] backdrop-filter backdrop-blur-lg"
     >
       {/* 🖼 Image Preview */}
       {imagePreview && (
@@ -53,12 +53,12 @@ const MessageInput = () => {
             <img
               src={imagePreview}
               alt="Preview"
-              className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-lg border border-zinc-700"
+              className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-lg border border-white/30"
             />
             <button
               type="button"
               onClick={removeImage}
-              className="absolute -top-1 -right-1 bg-zinc-800 text-white rounded-full p-[2px] hover:bg-red-500 transition"
+              className="absolute -top-1 -right-1 bg-white/20 backdrop-blur-sm text-white rounded-full p-[2px] hover:bg-red-500 transition"
             >
               <X size={12} />
             </button>
@@ -69,14 +69,14 @@ const MessageInput = () => {
       {/* ✍️ Input Form */}
       <form
         onSubmit={handleSend}
-        className="flex items-center gap-2 bg-zinc-800 rounded-full 
-                   px-3 sm:px-4 py-2 sm:py-2.5 shadow-inner"
+        className="flex items-center gap-2 glass rounded-full 
+                   px-3 sm:px-4 py-2 sm:py-2.5 shadow-inner backdrop-filter backdrop-blur-lg"
       >
         {/* Text Input */}
         <input
           type="text"
           placeholder="Message..."
-          className="flex-1 bg-transparent text-sm sm:text-base text-zinc-100 placeholder-zinc-500 focus:outline-none"
+          className="flex-1 bg-transparent text-sm sm:text-base text-white placeholder-white/50 focus:outline-none"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
@@ -94,7 +94,7 @@ const MessageInput = () => {
         <button
           type="button"
           onClick={() => fileInputRef.current?.click()}
-          className="text-zinc-400 hover:text-white transition p-1 sm:p-2"
+          className="text-white/60 hover:text-white transition p-1 sm:p-2"
         >
           <Image size={18} />
         </button>
@@ -103,8 +103,8 @@ const MessageInput = () => {
         <button
           type="submit"
           disabled={!text.trim() && !imagePreview}
-          className="bg-[#056162] hover:bg-[#128c7e] text-white 
-                     p-2 sm:p-2.5 rounded-full transition disabled:opacity-50"
+          className="btn-gradient text-white 
+                     p-2 sm:p-2.5 rounded-full transition disabled:opacity-50 disabled:scale-100"
         >
           <Send size={16} />
         </button>

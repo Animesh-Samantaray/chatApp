@@ -1,1 +1,153 @@
 @import "tailwindcss";
+
+/* Animated Gradient Background */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #7C3AED, #2563EB, #06B6D4, #7C3AED);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+  color: white;
+}
+
+/* Chat Container Animated Background */
+.chat-animated-bg {
+  position: relative;
+  background: linear-gradient(135deg, 
+    rgba(124, 58, 237, 0.1) 0%, 
+    rgba(37, 99, 235, 0.1) 25%, 
+    rgba(6, 182, 212, 0.1) 50%, 
+    rgba(124, 58, 237, 0.1) 75%, 
+    rgba(168, 85, 247, 0.1) 100%);
+  background-size: 200% 200%;
+  animation: chatBgShift 15s ease infinite;
+}
+
+.chat-animated-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.2) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.2) 0%, transparent 50%),
+              radial-gradient(circle at 40% 40%, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+  animation: floatingOrbs 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Keyframes */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes chatBgShift {
+  0% { background-position: 0% 0%; }
+  25% { background-position: 100% 0%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+@keyframes floatingOrbs {
+  0%, 100% { 
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.7;
+  }
+  25% { 
+    transform: translate(30px, -20px) scale(1.1);
+    opacity: 0.9;
+  }
+  50% { 
+    transform: translate(-20px, 30px) scale(0.9);
+    opacity: 0.6;
+  }
+  75% { 
+    transform: translate(40px, 10px) scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Global Styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.3) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 3px;
+}
+
+/* Glassmorphism Base */
+.glass {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Button Transitions */
+.btn-gradient {
+  background: linear-gradient(135deg, #7C3AED, #2563EB);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(124,58,237,0.4);
+}
+
+/* Message Animations */
+.message-fade-in {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* Input Fields */
+.input-glass {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.input-glass::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+.input-glass:focus {
+  border-color: rgba(124,58,237,0.6);
+  box-shadow: 0 0 10px rgba(124,58,237,0.3);
+}
+
+/* Online Indicator */
+.online-indicator {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #22c55e;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 6px #22c55e; }
+  50% { box-shadow: 0 0 12px #22c55e; }
+  100% { box-shadow: 0 0 6px #22c55e; }
+}
