@@ -7,6 +7,7 @@ import SignUpPage from './pages/SignUpPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
 import SettingsPage from './pages/SettingsPage.jsx';
+import NotFoundPage from './pages/NotFoundPage.jsx';
 import { useAuthStore } from './store/useAuthStore.js';
 import { Navigate } from 'react-router-dom';
 import {Loader} from 'lucide-react'
@@ -66,11 +67,9 @@ const App = () => {
       <Route path='/' element={authUser ?< HomePage/> :<Navigate to='/login' />}/>
       <Route path='/signup' element={!authUser ?< SignUpPage/>:<Navigate to='/' /> }/>
       <Route path='/login' element={!authUser ?< LoginPage/>:<Navigate to='/' />}/>
-      {/* <Route path='/profile' element={authUser ?< ProfilePage/>:<Navigate to='/login' />}/> */}
       <Route path='/settings' element={< SettingsPage/>}/>
       <Route path='/profile' element={ < ProfilePage/>}/>
-
-      
+      <Route path='*' element={<NotFoundPage />} />
     </Routes>
     </div>
   )
