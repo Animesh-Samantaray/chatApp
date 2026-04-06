@@ -19,7 +19,7 @@ connectDb();
 
 app.use(cookieParser())
 app.use(cors({
-    origin:'http://localhost:5173',
+    origin:['http://localhost:5173','https://chat-app-animesh.vercel.app'],
     credentials:true
 }))
 app.use('/api/auth',authRoutes);
